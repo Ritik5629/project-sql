@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS members;
+
+CREATE TABLE members (
+    member_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    membership_type VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    join_date DATE NOT NULL
+);
+
+SELECT name, age, membership_type, email, phone, DATE_FORMAT(join_date, '%d-%m-%Y') AS join_date FROM members;
+
+-- Queries to fetch specific data
+SELECT * FROM members;
+SELECT name FROM members WHERE membership_type = 'Yearly';
+SELECT name FROM members WHERE age = 30;
+SELECT name FROM members WHERE age = 34;
+SELECT COUNT(*) AS total_members FROM members;
+SELECT AVG(age) AS average_age FROM members;
+SELECT MAX(age) AS max_age FROM members;
+SELECT MIN(age) AS min_age FROM members;
+SELECT membership_type, COUNT(*) AS count FROM members GROUP BY membership_type;
+
+-- Delete all inserted rows safely
+DELETE FROM members WHERE member_id > 0;  -- Deletes all records
