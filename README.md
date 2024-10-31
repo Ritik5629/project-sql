@@ -71,27 +71,12 @@ Scroll through to see all member details.
 ## Clearing Input Fields
 To clear all fields, manually delete the text or add a reset button if needed.
 
-## Ensure your MySQL server is running to connect to the database.
+Ensure your MySQL server is running to connect to the database.
 
-## Make sure the database and table names match exactly as shown in the setup steps.
+Make sure the database and table names match exactly as shown in the setup steps.
 
-## SQL CODE 
+##  Queries to fetch specific data
 ```bash
-DROP TABLE IF EXISTS members;
-
-CREATE TABLE members (
-    member_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    age INT NOT NULL,
-    membership_type VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    phone VARCHAR(15) NOT NULL,
-    join_date DATE NOT NULL
-);
-
-SELECT name, age, membership_type, email, phone, DATE_FORMAT(join_date, '%d-%m-%Y') AS join_date FROM members;
-
--- Queries to fetch specific data
 SELECT * FROM members;
 SELECT name FROM members WHERE membership_type = 'Yearly';
 SELECT name FROM members WHERE age = 30;
